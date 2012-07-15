@@ -1,5 +1,5 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/menu_serversettings"
-        android:title="@string/menu_serversettings"
+    <item android:id="@+id/menu_default"
+        android:title="@string/menu_alarmlist"
         android:orderInCategory="100" />
 </menu>
