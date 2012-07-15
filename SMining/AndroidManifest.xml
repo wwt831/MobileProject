@@ -24,6 +24,14 @@
             android:name=".ServerIPActivity"
             android:label="@string/title_default" >
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name=".AlarmListActivity"
+            android:label="@string/title_activity_alarm_list" >
+        </activity>
     </application>
 
 </manifest>
