@@ -41,6 +41,7 @@ public final class R {
         public static final int option_selected=0x7f020016;
         public static final int qq_btn_check=0x7f020017;
         public static final int qq_edit_login=0x7f020018;
+        public static final int smining_launcher=0x7f020019;
     }
     public static final class id {
         public static final int ImageButton02=0x7f080008;
