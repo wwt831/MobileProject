@@ -1,6 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/menu_alarmlist"
         android:title="@string/menu_alarmlist"
-        android:orderInCategory="100" />
-    <item android:id="@+id/menu_quit" android:title="退出应用"></item>
+        android:orderInCategory="1" />
+    <item android:id="@+id/menu_update" android:title="@string/str_checkupdate" android:orderInCategory="2"></item><item android:id="@+id/menu_help" android:title="@string/str_help" android:orderInCategory="3"></item><item android:id="@+id/menu_quit" android:title="退出应用" android:orderInCategory="4"></item>
+    
+    
 </menu>
