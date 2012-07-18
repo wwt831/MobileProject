@@ -27,5 +27,8 @@
     <string name="str_btn_updateapp">检查应用程序更新</string>
     <string name="str_checkupdate">检查更新</string>
     <string name="str_help">帮助</string>
+    <string name="default_city">Taiyuan</string>
+    <string name="default_serverip">192.168.0.101</string>
+    <string name="default_port">6616</string>
 
 </resources>

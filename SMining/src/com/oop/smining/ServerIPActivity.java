@@ -12,8 +12,8 @@ import android.widget.Button;
 public class ServerIPActivity extends Activity {
 
 	private Button button;
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
+
+	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_serverip);
         
@@ -31,14 +31,16 @@ public class ServerIPActivity extends Activity {
         button = (Button)this.findViewById(R.id.ServerIP_btn_save);
         button.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-        		Intent intent = new Intent(ServerIPActivity.this,LoginActivity.class);
+        		//TODO:校验输入，保存。
+        		//如果校验成功，回到登录页面
+				Intent intent = new Intent(ServerIPActivity.this,LoginActivity.class);
         		startActivity(intent);
         		finish();
+        		//否则提示校验失败，重新输入
         	}
         });
     }
 
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         return true;
     }

@@ -92,6 +92,9 @@ public final class R {
         public static final int app_filename=0x7f050000;
         public static final int app_name=0x7f050001;
         public static final int btn_return=0x7f050011;
+        public static final int default_city=0x7f05001b;
+        public static final int default_port=0x7f05001d;
+        public static final int default_serverip=0x7f05001c;
         public static final int hello_world=0x7f050012;
         public static final int launcher_name=0x7f050005;
         public static final int login=0x7f05000b;

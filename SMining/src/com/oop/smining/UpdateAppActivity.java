@@ -15,6 +15,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.oop.utils.Utils;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -82,13 +84,13 @@ public class UpdateAppActivity extends Activity {
 	// 检查新版本并更新
 	private void checkToUpdate() throws NameNotFoundException {
 		JSONArray serverVer;
-		int currentVerCode = Utils.getCurrentVerCode(this);
-		String currentVerName = Utils.getCurrentVerName(this);
+		int currentVerCode = Utils.getCurrentVersionCode(this);
+		String currentVerName = Utils.getCurrentVersionName(this);
 		int serverVerCode = 0;
 		String serverVerName = "";
 
 		try {
-			serverVer = new JSONArray(Utils.getServerVerJSON());
+			serverVer = new JSONArray(Utils.getServerVersionJSON());
 			if (serverVer.length() > 0) {
 				serverVerCode = serverVer.getJSONObject(0).getInt("VerCode");
 				serverVerCode = serverVer.getJSONObject(0).getInt("VerName");
@@ -98,7 +100,7 @@ public class UpdateAppActivity extends Activity {
 					sb.append("当前版本：");
 					sb.append(currentVerName);
 					sb.append("VerCode:");
-					sb.append(Utils.getCurrentVerCode(this));
+					sb.append(Utils.getCurrentVersionCode(this));
 					sb.append("\n");
 					sb.append("发现新版本：");
 					sb.append(serverVerName);
