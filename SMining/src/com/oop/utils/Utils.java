@@ -100,13 +100,13 @@ public class Utils {
 		return str;
 	}
 	
-	//设置首选服务器地址
-	public static void setDefaultServerIP(Context context, String serverIP) {
+	//设置服务器地址
+	public static void saveServerIP(Context context, String serverIP) {
 		OutputStream out = null;
 		try {
 			out = context.openFileOutput("smining.cfg", Context.MODE_PRIVATE);
 			Properties properties = new Properties();
-			properties.setProperty("DefaultServerIP", encodeUTF8(serverIP));
+			properties.setProperty("ServerIP", encodeUTF8(serverIP));
 			properties.store(out, "");
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -114,13 +114,18 @@ public class Utils {
 
 	}
 
-	//获取首选服务器地址
-	public static String getDefaultServerIP(Context context) {
+	//获取服务器端口
+	public static String getServerPort(Context context) {
+		return context.getString(R.string.serverport);
+	}
+
+	// 获取最近使用的用户名
+	public static String getLastUserName(Context context) {
 		InputStream in;
 		try {
 			in = context.openFileInput("smining.cfg");
 		} catch (FileNotFoundException e1) {
-			return encodeUTF8(context.getString(R.string.default_serverip));
+			return encodeUTF8("smining");
 		}
 		Properties properties = new Properties();
 		try {
@@ -128,30 +133,47 @@ public class Utils {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return (String) properties.get("default_serverip");
+		return (String) properties.get("lastUser");
 	}
-	
-	//设置首选服务器端口
-	public static void setDefaultServerPort(Context context, String port) {
+
+	//保存最近使用的用户名
+	public static void setLastUserName(Context context, String userName) {
 		OutputStream out = null;
 		try {
 			out = context.openFileOutput("smining.cfg", Context.MODE_PRIVATE);
 			Properties properties = new Properties();
-			properties.setProperty("DefaultServerPort", encodeUTF8(port));
+			properties.setProperty("lastUser", encodeUTF8(userName));
 			properties.store(out, "");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
+	}
+	
+	//保存用户密码
+	public static void saveUserPassword(Context context, String userName, String password) {
+		OutputStream out = null;
+		try {
+			out = context.openFileOutput("smining.pass", Context.MODE_PRIVATE);
+			Properties properties = new Properties();
+			properties.setProperty(userName, encodeBase64(password));
+			properties.store(out, "");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private static String encodeBase64(String password) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	//获取首选服务器端口
-	public static String getDefaultServerPort(Context context) {
+	// 获取保存的用户密码
+	public static String getSavedPassword(Context context, String userName) {
 		InputStream in;
 		try {
-			in = context.openFileInput("smining.cfg");
+			in = context.openFileInput("smining.pass");
 		} catch (FileNotFoundException e1) {
-			return encodeUTF8(context.getString(R.string.default_port));
+			return null;
 		}
 		Properties properties = new Properties();
 		try {
@@ -159,9 +181,18 @@ public class Utils {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return (String) properties.get("default_port");
+		String code = (String) properties.get(userName);
+		if(code.length()>0) 			
+			return decodeBase64(code);
+		else
+			return code;
 	}
 	
+	private static String decodeBase64(String code) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	//获得当前版本代码
 	public static int getCurrentVersionCode(Context context)throws NameNotFoundException{
 		int verCode = -1;
@@ -213,5 +244,40 @@ public class Utils {
 			reader.close();
 		}
 		return newVerJSON.toString();
+	}
+
+	public static boolean isValidServerIP(String serverIP) {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	//获取上次登录的服务器地址
+	public static String getLastServerIP(Context context) {
+		InputStream in;
+		try {
+			in = context.openFileInput("smining.cfg");
+		} catch (FileNotFoundException e1) {
+			return encodeUTF8("smining");
+		}
+		Properties properties = new Properties();
+		try {
+			properties.load(in);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return (String) properties.get("lastServerIP");
+	}
+	
+	//保存上次登录的服务器地址
+	public static void setLastServerIP(Context context, String serverIP) {
+		OutputStream out = null;
+		try {
+			out = context.openFileOutput("smining.cfg", Context.MODE_PRIVATE);
+			Properties properties = new Properties();
+			properties.setProperty("lastServerIP", encodeUTF8(serverIP));
+			properties.store(out, "");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

@@ -2,12 +2,10 @@ package com.oop.smining;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
 
 public class MainActivity extends Activity {
 
@@ -17,6 +15,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 	}
 
+	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		// TODO:处理返回键及HOME键事件
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -35,7 +34,9 @@ public class MainActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.menu_alarmlist:
-			startActivity(new Intent(MainActivity.this, AlarmListActivity.class));
+			Intent intent = new Intent();
+			intent.setClass(MainActivity.this, AlarmListActivity.class);
+			startActivity(intent);
 			finish();
 			return true;
 		case R.id.menu_update:

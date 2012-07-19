@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v4.app.NavUtils;
 
 public class AlarmListActivity extends Activity {
 

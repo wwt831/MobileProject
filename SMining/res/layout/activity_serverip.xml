@@ -36,33 +36,14 @@
 				android:text="@string/strServerIPInputLabel" android:layout_alignLeft="@+id/ServerIP_edit_server"
 				android:layout_alignTop="@+id/ServerIP_edit_server"
 				android:layout_alignBottom="@+id/ServerIP_edit_server" />
-			<ImageButton android:id="@+id/ImageButton02"
-				android:background="@drawable/more_select" android:layout_width="wrap_content"
-				android:layout_height="wrap_content" android:layout_marginRight="1.0dip"
-				android:layout_alignTop="@+id/ServerIP_edit_server"
-				android:layout_alignRight="@+id/ServerIP_edit_server"
-				android:layout_alignBottom="@+id/ServerIP_edit_server"
-				android:contentDescription="@string/select_more"/>
-			<EditText android:id="@+id/ServerIP_edit_port"
-				android:background="@drawable/qq_edit_login" android:paddingLeft="45.0sp"
-				android:saveEnabled="true" android:layout_width="wrap_content"
-				android:layout_height="wrap_content" android:layout_marginRight="1.0dip"
-				android:maxLength="16" android:layout_below="@+id/ServerIP_edit_server"
-				android:layout_alignLeft="@+id/ServerIP_edit_server"
-				android:layout_alignRight="@+id/ServerIP_edit_server"
-				android:inputType="number" />
-			<TextView android:textSize="16.0dip" android:textColor="#ff3f3f3f"
-				android:gravity="center_vertical" android:id="@+id/TextView02"
-				android:paddingLeft="7.0sp" android:layout_width="wrap_content"
-				android:layout_height="wrap_content" android:text="@string/strPortInputLabel"
-				android:layout_alignTop="@+id/ServerIP_edit_port"
-				android:layout_alignRight="@+id/TextView01"
-				android:layout_alignBottom="@+id/ServerIP_edit_port" />
-			<Button android:id="@+id/ServerIP_btn_save" android:layout_width="130.0px"
-				android:layout_height="64.0px" android:layout_marginTop="7.0px"
-				android:layout_marginRight="12.0dip" android:text="@string/SaveIP"
-				android:layout_below="@+id/TextView02"
-				android:layout_alignParentRight="true" />
+
+			<Button
+			    android:id="@+id/ServerIP_btn_save"
+			    android:layout_width="130.0px"
+			    android:layout_height="64.0px"
+			    android:layout_centerVertical="true"
+			    android:text="@string/SaveIP" />
+
 		</RelativeLayout>
 
 		

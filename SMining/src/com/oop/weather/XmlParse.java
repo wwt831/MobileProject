@@ -26,7 +26,8 @@ public class XmlParse extends  DefaultHandler {
 		return baseWeather;
 	}
 
-    public void startElement(String uri, String localName, String qName,
+    @Override
+	public void startElement(String uri, String localName, String qName,
             Attributes attributes) throws SAXException{
         
         String tagName = localName.length() != 0 ? localName : qName;
@@ -68,7 +69,8 @@ public class XmlParse extends  DefaultHandler {
         
     }
     
-    public void endElement(String uri, String localName, String qName)
+    @Override
+	public void endElement(String uri, String localName, String qName)
             throws SAXException {
 
         String tagName = localName.length() != 0 ? localName : qName;

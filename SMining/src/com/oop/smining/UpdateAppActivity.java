@@ -13,20 +13,15 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
-
 import com.oop.utils.Utils;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -45,6 +40,7 @@ public class UpdateAppActivity extends Activity {
 
 	private Handler handler = new Handler();
 
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_update);
@@ -60,6 +56,7 @@ public class UpdateAppActivity extends Activity {
 
 		btnUpdateApp = (Button) findViewById(R.id.updateapp_btn_update);
 		btnUpdateApp.setOnClickListener(new OnClickListener() {
+			@Override
 			public void onClick(View arg0) {
 				try {
 					checkToUpdate();
@@ -71,6 +68,7 @@ public class UpdateAppActivity extends Activity {
 	}
 	
 	//处理返回键事件
+	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			startActivity(new Intent(UpdateAppActivity.this, MainActivity.class));
@@ -123,6 +121,7 @@ public class UpdateAppActivity extends Activity {
 									})
 							.setNegativeButton("暂不更新",
 									new DialogInterface.OnClickListener() {
+										@Override
 										public void onClick(
 												DialogInterface dialog,
 												int which) {
@@ -158,6 +157,7 @@ public class UpdateAppActivity extends Activity {
 		final String url = serverIP + ":" + serverPort + "/" + serverPath;
 		pBar.show();
 		new Thread() {
+			@Override
 			public void run() {
 				HttpClient client = new DefaultHttpClient();
 				HttpGet get = new HttpGet(url);
@@ -199,6 +199,7 @@ public class UpdateAppActivity extends Activity {
 	//取消进度条，开始新应用
 	protected void haveDownLoad() {
 		handler.post(new Runnable() {
+			@Override
 			public void run() {
 				pBar.cancel();
 				// 弹出警告框，提示是否安装新的版本
@@ -208,6 +209,7 @@ public class UpdateAppActivity extends Activity {
 						.setMessage("是否安装新的应用")
 						.setPositiveButton("确定",
 								new DialogInterface.OnClickListener() {
+									@Override
 									public void onClick(DialogInterface dialog,
 											int which) {
 										installNewApk();
@@ -216,6 +218,7 @@ public class UpdateAppActivity extends Activity {
 								})
 						.setNegativeButton("取消",
 								new DialogInterface.OnClickListener() {
+									@Override
 									public void onClick(DialogInterface dialog,
 											int which) {
 										finish();

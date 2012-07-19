@@ -15,33 +15,20 @@
 
     <application
         android:icon="@drawable/smining_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:label="@string/app_name">
         <activity
             android:name=".LoginActivity"
             android:label="@string/launcher_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ServerIPActivity"
-            android:label="@string/title_default" >
-        </activity>
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main" >
-        </activity>
-        <activity
-            android:name=".AlarmListActivity"
-            android:label="@string/title_activity_alarm_list" >
-        </activity>
-        <activity 
-            android:name=".UpdateAppActivity"
-            android:label="@string/title_default">
-        </activity>
+        <activity android:name=".ServerIPActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".AlarmListActivity" />
+        <activity android:name=".UpdateAppActivity" />
+        
         <receiver android:name="ReplaceBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED"/>
@@ -49,6 +36,7 @@
                 <data android:scheme="package"/>
             </intent-filter>
         </receiver>
+        
     </application>
 
 </manifest>
