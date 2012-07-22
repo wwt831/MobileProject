@@ -14,32 +14,22 @@ import android.widget.EditText;
 
 public class ServerIPActivity extends Activity {
 
-	private Button cancelButton;
 	private Button saveButton;
 	private EditText ETserverIP;
+	private String serverIP;
 
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_serverip);
         setTitle("服务器地址设置");
         
-        cancelButton = (Button)this.findViewById(R.id.ServerIP_btn_cancel);
         saveButton = (Button)this.findViewById(R.id.ServerIP_btn_save);
         ETserverIP = (EditText)this.findViewById(R.id.ServerIP_edit_server);
 
-        //获取上次登录服务器地址
-        ETserverIP.setText(Utils.getLastServerIP(this));
+        serverIP = Utils.getServerIP(this);
+        ETserverIP.setText(serverIP);
         
-        //设置取消按钮动作
-        class cancelButtonListener implements OnClickListener {
-			public void onClick(View v) {
-        		Intent intent = new Intent(ServerIPActivity.this,LoginActivity.class);
-        		startActivity(intent);
-        		finish();
-        	}
-        }
-        
-      //设置保存按钮动作
+        //设置保存按钮动作
         class saveButtonListener implements OnClickListener {
 			public void onClick(View v) {
 				String serverIP = ETserverIP.getText().toString();
@@ -54,7 +44,6 @@ public class ServerIPActivity extends Activity {
         	}
         }
         
-        cancelButton.setOnClickListener(new cancelButtonListener());
         saveButton.setOnClickListener(new saveButtonListener());
 	}
 }

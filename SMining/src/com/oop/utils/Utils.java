@@ -102,16 +102,12 @@ public class Utils {
 	
 	//设置服务器地址
 	public static void saveServerIP(Context context, String serverIP) {
-		OutputStream out = null;
-		try {
-			out = context.openFileOutput("smining.cfg", Context.MODE_PRIVATE);
-			Properties properties = new Properties();
-			properties.setProperty("ServerIP", encodeUTF8(serverIP));
-			properties.store(out, "");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
+		saveProperties(context, "ServerIP", serverIP);
+	}
+	
+	//获取服务器地址
+	public static String getServerIP(Context context) {
+		return getProperties(context, "ServerIP");
 	}
 
 	//获取服务器端口
@@ -120,12 +116,51 @@ public class Utils {
 	}
 
 	// 获取最近使用的用户名
-	public static String getLastUserName(Context context) {
+	public static String getSavedUserName(Context context) {
+		return getProperties(context, "UserName");
+	}
+
+	//保存使用的用户名
+	public static void saveUserName(Context context, String userName) {
+		saveProperties(context, "UserName", userName);
+	}
+	
+	//将配置信息保存到Properties文件中
+	private static void saveProperties(Context context, String propName, String value) {
+		OutputStream out = null;
+		InputStream in = null;
+		Properties properties = new Properties();
+		
+		try {
+			in = context.openFileInput("smining.cfg");
+			properties.load(in);
+			out = context.openFileOutput("smining.cfg", Context.MODE_PRIVATE);
+		} catch (FileNotFoundException e1) {
+			try {
+				out = context.openFileOutput("smining.cfg", Context.MODE_PRIVATE);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
+
+		properties.setProperty(propName, value);
+		
+		try {
+			properties.store(out, "");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	//将配置信息从Properties文件中读出来
+	private static String getProperties(Context context, String propName) {
 		InputStream in;
 		try {
 			in = context.openFileInput("smining.cfg");
 		} catch (FileNotFoundException e1) {
-			return encodeUTF8("smining");
+			return "";
 		}
 		Properties properties = new Properties();
 		try {
@@ -133,20 +168,7 @@ public class Utils {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return (String) properties.get("lastUser");
-	}
-
-	//保存最近使用的用户名
-	public static void setLastUserName(Context context, String userName) {
-		OutputStream out = null;
-		try {
-			out = context.openFileOutput("smining.cfg", Context.MODE_PRIVATE);
-			Properties properties = new Properties();
-			properties.setProperty("lastUser", encodeUTF8(userName));
-			properties.store(out, "");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		return (String) properties.get(propName);
 	}
 	
 	//保存用户密码
@@ -164,7 +186,7 @@ public class Utils {
 	
 	private static String encodeBase64(String password) {
 		// TODO Auto-generated method stub
-		return null;
+		return password;
 	}
 
 	// 获取保存的用户密码
@@ -190,7 +212,7 @@ public class Utils {
 	
 	private static String decodeBase64(String code) {
 		// TODO Auto-generated method stub
-		return null;
+		return code;
 	}
 
 	//获得当前版本代码
@@ -248,36 +270,11 @@ public class Utils {
 
 	public static boolean isValidServerIP(String serverIP) {
 		// TODO Auto-generated method stub
-		return true;
+		if(serverIP.length()>6)
+			return true;
+		else
+			return false;
 	}
 
-	//获取上次登录的服务器地址
-	public static String getLastServerIP(Context context) {
-		InputStream in;
-		try {
-			in = context.openFileInput("smining.cfg");
-		} catch (FileNotFoundException e1) {
-			return encodeUTF8("smining");
-		}
-		Properties properties = new Properties();
-		try {
-			properties.load(in);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return (String) properties.get("lastServerIP");
-	}
-	
-	//保存上次登录的服务器地址
-	public static void setLastServerIP(Context context, String serverIP) {
-		OutputStream out = null;
-		try {
-			out = context.openFileOutput("smining.cfg", Context.MODE_PRIVATE);
-			Properties properties = new Properties();
-			properties.setProperty("lastServerIP", encodeUTF8(serverIP));
-			properties.store(out, "");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+
 }

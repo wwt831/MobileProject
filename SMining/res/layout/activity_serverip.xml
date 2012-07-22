@@ -13,7 +13,7 @@
 			android:paddingBottom="10.0px" android:layout_width="fill_parent"
 			android:layout_height="wrap_content" android:layout_marginLeft="15.0px"
 			android:layout_marginTop="62.0px" android:layout_marginRight="15.0px">
-
+
 			<EditText
 			    android:id="@+id/ServerIP_edit_server"
 			    android:layout_width="fill_parent"
@@ -26,7 +26,7 @@
 			    android:background="@drawable/qq_edit_login"
 			    android:hint="@string/strInputServerHint"
 			    android:inputType="text"
-			    android:maxLength="10"
+			    android:maxLength="15"
 			    android:paddingLeft="45.0sp"
 			    android:saveEnabled="true" />
 
@@ -55,11 +55,5 @@
 	    android:layout_height="wrap_content"
 	    android:background="@drawable/bottom"
 	    android:gravity="center" >
-
-			<Button
-			    android:id="@+id/ServerIP_btn_cancel"
-			    android:layout_width="96px"
-			    android:layout_height="64px"
-			    android:text="@string/btn_return" />
 
 		</RelativeLayout></LinearLayout>

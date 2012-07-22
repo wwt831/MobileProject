@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LoginActivity extends Activity {
 
@@ -34,9 +35,9 @@ public class LoginActivity extends Activity {
 		loginETPassword = (EditText) this.findViewById(R.id.login_edit_pwd);
 		loginCBsave = (CheckBox) this.findViewById(R.id.login_cb_savepwd);
 
-		serverIP = Utils.getLastServerIP(this);
+		serverIP = Utils.getServerIP(this);
 		serverPort = Utils.getServerPort(this);
-		username = Utils.getLastUserName(this);
+		username = Utils.getSavedUserName(this);
 		password = Utils.getSavedPassword(this, username);
 		
 		loginETUserName.setText(username);
@@ -45,13 +46,16 @@ public class LoginActivity extends Activity {
 		// 定义登录按钮动作
 		class loginButtonListener implements OnClickListener {
 			public void onClick(View v) {
+				username = loginETUserName.getText().toString();
+				password = loginETPassword.getText().toString();
+				
 				boolean isValidUser;
-				// TODO:验证用户有效性
+				// TODO:到服务器端验证用户有效性
 				isValidUser = true;
 				
 				if(isValidUser) {
 					if(loginCBsave.isChecked()) {
-						Utils.setLastUserName(LoginActivity.this, username);
+						Utils.saveUserName(LoginActivity.this, username);
 						Utils.saveUserPassword(LoginActivity.this, username, password);
 					}
 					startActivity(new Intent(LoginActivity.this, MainActivity.class));
