@@ -77,7 +77,6 @@ public class AlarmListActivity extends Activity {
     
     class ItemClickEvent implements OnItemClickListener {
 
-		@Override
 		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 				long arg3) {
 			Toast.makeText(AlarmListActivity.this, "Ñ¡ÖÐ"+String.valueOf(arg2)+"ÐÐ", 500).show();

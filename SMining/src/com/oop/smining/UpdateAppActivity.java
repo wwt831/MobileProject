@@ -56,7 +56,6 @@ public class UpdateAppActivity extends Activity {
 
 		btnUpdateApp = (Button) findViewById(R.id.updateapp_btn_update);
 		btnUpdateApp.setOnClickListener(new OnClickListener() {
-			@Override
 			public void onClick(View arg0) {
 				try {
 					checkToUpdate();
@@ -112,7 +111,6 @@ public class UpdateAppActivity extends Activity {
 							.setMessage(sb.toString())
 							.setPositiveButton("更新",
 									new DialogInterface.OnClickListener() {
-										@Override
 										public void onClick(
 												DialogInterface dialog,
 												int which) {
@@ -121,7 +119,6 @@ public class UpdateAppActivity extends Activity {
 									})
 							.setNegativeButton("暂不更新",
 									new DialogInterface.OnClickListener() {
-										@Override
 										public void onClick(
 												DialogInterface dialog,
 												int which) {
@@ -199,7 +196,6 @@ public class UpdateAppActivity extends Activity {
 	//取消进度条，开始新应用
 	protected void haveDownLoad() {
 		handler.post(new Runnable() {
-			@Override
 			public void run() {
 				pBar.cancel();
 				// 弹出警告框，提示是否安装新的版本
@@ -209,7 +205,6 @@ public class UpdateAppActivity extends Activity {
 						.setMessage("是否安装新的应用")
 						.setPositiveButton("确定",
 								new DialogInterface.OnClickListener() {
-									@Override
 									public void onClick(DialogInterface dialog,
 											int which) {
 										installNewApk();
@@ -218,7 +213,6 @@ public class UpdateAppActivity extends Activity {
 								})
 						.setNegativeButton("取消",
 								new DialogInterface.OnClickListener() {
-									@Override
 									public void onClick(DialogInterface dialog,
 											int which) {
 										finish();
