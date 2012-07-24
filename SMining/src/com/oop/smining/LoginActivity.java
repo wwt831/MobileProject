@@ -38,7 +38,7 @@ public class LoginActivity extends Activity {
 		serverIP = Utils.getServerIP(this);
 		serverPort = Utils.getServerPort(this);
 		username = Utils.getSavedUserName(this);
-		password = Utils.getSavedPassword(this, username);
+		password = Utils.getSavedPassword(this);
 		
 		loginETUserName.setText(username);
 		loginETPassword.setText(password);
@@ -56,7 +56,7 @@ public class LoginActivity extends Activity {
 				if(isValidUser) {
 					if(loginCBsave.isChecked()) {
 						Utils.saveUserName(LoginActivity.this, username);
-						Utils.saveUserPassword(LoginActivity.this, username, password);
+						Utils.savePassword(LoginActivity.this, password);
 					}
 					startActivity(new Intent(LoginActivity.this, MainActivity.class));
 					finish();

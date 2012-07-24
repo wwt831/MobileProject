@@ -12,6 +12,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -20,6 +22,8 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.oop.smining.R;
 
@@ -125,6 +129,16 @@ public class Utils {
 		saveProperties(context, "UserName", userName);
 	}
 	
+	// 获取最近使用的密码
+	public static String getSavedPassword(Context context) {
+		return getProperties(context, "Password");
+	}
+
+	//保存使用的密码
+	public static void savePassword(Context context, String password) {
+		saveProperties(context, "Password", password);
+	}
+	
 	//将配置信息保存到Properties文件中
 	private static void saveProperties(Context context, String propName, String value) {
 		OutputStream out = null;
@@ -171,50 +185,6 @@ public class Utils {
 		return (String) properties.get(propName);
 	}
 	
-	//保存用户密码
-	public static void saveUserPassword(Context context, String userName, String password) {
-		OutputStream out = null;
-		try {
-			out = context.openFileOutput("smining.pass", Context.MODE_PRIVATE);
-			Properties properties = new Properties();
-			properties.setProperty(userName, encodeBase64(password));
-			properties.store(out, "");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	private static String encodeBase64(String password) {
-		// TODO Auto-generated method stub
-		return password;
-	}
-
-	// 获取保存的用户密码
-	public static String getSavedPassword(Context context, String userName) {
-		InputStream in;
-		try {
-			in = context.openFileInput("smining.pass");
-		} catch (FileNotFoundException e1) {
-			return null;
-		}
-		Properties properties = new Properties();
-		try {
-			properties.load(in);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		String code = (String) properties.get(userName);
-		if(code.length()>0) 			
-			return decodeBase64(code);
-		else
-			return code;
-	}
-	
-	private static String decodeBase64(String code) {
-		// TODO Auto-generated method stub
-		return code;
-	}
-
 	//获得当前版本代码
 	public static int getCurrentVersionCode(Context context)throws NameNotFoundException{
 		int verCode = -1;
@@ -269,12 +239,28 @@ public class Utils {
 	}
 
 	public static boolean isValidServerIP(String serverIP) {
-		// TODO Auto-generated method stub
-		if(serverIP.length()>6)
-			return true;
-		else
-			return false;
+		Pattern pattern = Pattern.compile("\\b((?!\\d\\d\\d)\\d+|1\\d\\d|2[0-4]\\d|25[0-5])\\.((?!\\d\\d\\d)\\d+|1\\d\\d|2[0-4]\\d|25[0-5])\\.((?!\\d\\d\\d)\\d+|1\\d\\d|2[0-4]\\d|25[0-5])\\.((?!\\d\\d\\d)\\d+|1\\d\\d|2[0-4]\\d|25[0-5])\\b");
+
+		Matcher matcher = pattern.matcher(serverIP);
+
+		return matcher.matches();
 	}
 
-
+	public static JSONObject getDemoData(Context context, String type) {
+		String line="",Result="";
+		JSONObject jsonObj=null;
+		try {
+			//JSON数据必须采用 UTF-8编码
+			InputStreamReader inputReader = new InputStreamReader(context.getResources().getAssets().open(type+".json"), "UTF-8");
+			BufferedReader bufReader = new BufferedReader(inputReader);
+			while((line=bufReader.readLine())!=null)
+				Result+=line;
+			jsonObj=new JSONObject(Result);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return jsonObj;
+	}
 }

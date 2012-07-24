@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
+encoding//assets/alarm.json=UTF-8
+encoding//assets/contact.json=UTF-8
 encoding//src/com/oop/smining/UpdateAppActivity.java=UTF-8
 encoding//src/com/oop/utils/Constant.java=UTF-8
 encoding//src/com/oop/weather/WeatherUtil.java=UTF-8

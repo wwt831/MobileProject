@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class ServerIPActivity extends Activity {
 
@@ -37,7 +38,7 @@ public class ServerIPActivity extends Activity {
         			startActivity(intent);
         			finish();
 				} else {
-	        		//否则提示校验失败，重新输入					
+	        		Toast.makeText(ServerIPActivity.this, "IP地址无效！", 300).show();					
 				}
         	}
         }
