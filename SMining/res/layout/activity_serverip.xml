@@ -3,19 +3,18 @@
     android:id="@+id/ServerIPLayoutRoot"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
-	<LinearLayout android:orientation="vertical" android:id="@+id/LinearLayout01"
-		android:layout_width="fill_parent" android:layout_height="0dip"
-		android:layout_weight="1.0"
-		android:background="@drawable/default_bg">
+    android:orientation="vertical" 
+    android:background="@drawable/default_bg">
+	
 		<RelativeLayout android:id="@+id/RelativeLayout02"
-			android:background="@drawable/login_back" android:paddingTop="21.0px"
-			android:paddingBottom="10.0px" android:layout_width="fill_parent"
+			android:paddingTop="21.0dp"
+			android:paddingBottom="10.0dp" android:layout_width="fill_parent"
 			android:layout_height="wrap_content" android:layout_marginLeft="15.0px"
-			android:layout_marginTop="62.0px" android:layout_marginRight="15.0px">
+			android:layout_marginTop="62.0dp" android:layout_marginRight="15.0px">
 
 			<EditText
 			    android:id="@+id/ServerIP_edit_server"
+			    android:background="@drawable/edit_text"
 			    android:layout_width="fill_parent"
 			    android:layout_height="wrap_content"
 			    android:layout_alignParentTop="true"
@@ -23,37 +22,30 @@
 			    android:layout_marginLeft="5.0dip"
 			    android:layout_marginRight="5.0dip"
 			    android:layout_marginTop="5.0dip"
-			    android:background="@drawable/qq_edit_login"
 			    android:hint="@string/strInputServerHint"
 			    android:inputType="text"
 			    android:maxLength="15"
 			    android:paddingLeft="45.0sp"
 			    android:saveEnabled="true" />
-
+                
 			<TextView android:textSize="16.0dip" android:textColor="#ff3f3f3f"			android:gravity="center_vertical" android:id="@+id/TextView01"
 				android:paddingLeft="7.0sp" android:layout_width="wrap_content"
 				android:layout_height="wrap_content" android:layout_marginRight="15.0sp"
 				android:text="@string/strServerIPInputLabel" android:layout_alignLeft="@+id/ServerIP_edit_server"
 				android:layout_alignTop="@+id/ServerIP_edit_server"
 				android:layout_alignBottom="@+id/ServerIP_edit_server" />
-
+
 			<Button
 			    android:id="@+id/ServerIP_btn_save"
-			    android:layout_width="130.0px"
-			    android:layout_height="64.0px"
-			    android:layout_centerVertical="true"
+			    android:layout_width="120dp"
+			    android:layout_height="wrap_content"
+			    android:layout_below="@+id/ServerIP_edit_server"
+			    android:layout_centerHorizontal="true"
+			    android:layout_marginTop="20dp"
+			    android:background="@drawable/btn_default"
 			    android:text="@string/SaveIP" />
 
 		</RelativeLayout>
-
-		
+
 
 	</LinearLayout>
-
-	<RelativeLayout
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:background="@drawable/bottom"
-	    android:gravity="center" >
-
-		</RelativeLayout></LinearLayout>
