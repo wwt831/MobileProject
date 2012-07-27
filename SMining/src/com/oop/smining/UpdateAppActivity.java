@@ -45,13 +45,13 @@ public class UpdateAppActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_update);
 
-		TextView tv = (TextView)findViewById(R.id.txt_CurrentVersion);
+		TextView tv = (TextView) findViewById(R.id.txt_CurrentVersion);
 		if (!Utils.isNetworkAvailable(this)) {
 			tv.append("\n\n请检查网络……");
 			return;
 		} else {
 			tv.append("\n\n网络可用：\n");
-			//TODO:显示当前版本信息
+			// TODO:显示当前版本信息
 		}
 
 		btnUpdateApp = (Button) findViewById(R.id.updateapp_btn_update);
@@ -65,8 +65,8 @@ public class UpdateAppActivity extends Activity {
 			}
 		});
 	}
-	
-	//处理返回键事件
+
+	// 处理返回键事件
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -75,8 +75,6 @@ public class UpdateAppActivity extends Activity {
 		}
 		return super.onKeyDown(keyCode, event);
 	}
-
-
 
 	// 检查新版本并更新
 	private void checkToUpdate() throws NameNotFoundException {
@@ -145,8 +143,6 @@ public class UpdateAppActivity extends Activity {
 		downAppFile();
 	}
 
-
-
 	protected void downAppFile() {
 		String serverIP = "";
 		int serverPort = 0;
@@ -171,7 +167,8 @@ public class UpdateAppActivity extends Activity {
 					}
 					File file = new File(
 							Environment.getExternalStorageDirectory(),
-							getResources().getText(R.string.app_filename).toString());
+							getResources().getText(R.string.app_filename)
+									.toString());
 					fileOutputStream = new FileOutputStream(file);
 					byte[] buf = new byte[1024];
 					int ch = -1;
@@ -193,7 +190,7 @@ public class UpdateAppActivity extends Activity {
 		}.start();
 	}
 
-	//取消进度条，开始新应用
+	// 取消进度条，开始新应用
 	protected void haveDownLoad() {
 		handler.post(new Runnable() {
 			public void run() {
@@ -227,8 +224,8 @@ public class UpdateAppActivity extends Activity {
 	protected void installNewApk() {
 		Intent intent = new Intent(Intent.ACTION_VIEW);
 		intent.setDataAndType(Uri.fromFile(new File(Environment
-				.getExternalStorageDirectory(), 
-				getResources().getText(R.string.app_filename).toString())),
+				.getExternalStorageDirectory(), getResources().getText(
+				R.string.app_filename).toString())),
 				"application/vnd.android.package-archive");
 		startActivity(intent);
 	}

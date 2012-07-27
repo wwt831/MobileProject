@@ -17,10 +17,11 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
 import android.content.Context;
+
 import com.oop.smining.R;
 import com.oop.utils.Constant;
 import com.oop.utils.Utils;
- 
+
 public class WeatherUtil {
 
 	public static void setDefaultCity(Context context, String city) {
@@ -51,19 +52,20 @@ public class WeatherUtil {
 		}
 		return (String) properties.get("city");
 	}
-	
-	 public static BaseWeather getWeatherByCity(String city) throws ParserConfigurationException, SAXException, IOException {
-	        
-         SAXParserFactory spf = SAXParserFactory.newInstance();
-         SAXParser sp = spf.newSAXParser();
-         XMLReader reader = sp.getXMLReader();
-         XmlParse  handler = new XmlParse();
-         reader.setContentHandler(handler);            
-         URL url = new URL(Constant.GOOGLE_WEATHER_URL_CN+city);
-         InputStream is = url.openStream();
-         InputStreamReader isr = new InputStreamReader(is,"GB2312");
-         InputSource source = new InputSource(isr);
-         reader.parse(source);
-         return handler.getBaseWeather();
-  }
+
+	public static BaseWeather getWeatherByCity(String city)
+			throws ParserConfigurationException, SAXException, IOException {
+
+		SAXParserFactory spf = SAXParserFactory.newInstance();
+		SAXParser sp = spf.newSAXParser();
+		XMLReader reader = sp.getXMLReader();
+		XmlParse handler = new XmlParse();
+		reader.setContentHandler(handler);
+		URL url = new URL(Constant.GOOGLE_WEATHER_URL_CN + city);
+		InputStream is = url.openStream();
+		InputStreamReader isr = new InputStreamReader(is, "GB2312");
+		InputSource source = new InputSource(isr);
+		reader.parse(source);
+		return handler.getBaseWeather();
+	}
 }

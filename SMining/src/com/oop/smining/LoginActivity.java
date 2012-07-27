@@ -26,6 +26,7 @@ public class LoginActivity extends Activity {
 	private String serverIP;
 	private String serverPort;
 
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
@@ -39,43 +40,45 @@ public class LoginActivity extends Activity {
 		serverPort = Utils.getServerPort(this);
 		username = Utils.getSavedUserName(this);
 		password = Utils.getSavedPassword(this);
-		
+
 		loginETUserName.setText(username);
 		loginETPassword.setText(password);
-		
+
 		// 定义登录按钮动作
 		class loginButtonListener implements OnClickListener {
 			public void onClick(View v) {
 				username = loginETUserName.getText().toString();
 				password = loginETPassword.getText().toString();
-				
+
 				boolean isValidUser;
 				// TODO:到服务器端验证用户有效性
 				isValidUser = true;
-				
-				if(isValidUser) {
-					if(loginCBsave.isChecked()) {
+
+				if (isValidUser) {
+					if (loginCBsave.isChecked()) {
 						Utils.saveUserName(LoginActivity.this, username);
 						Utils.savePassword(LoginActivity.this, password);
 					}
-					startActivity(new Intent(LoginActivity.this, MainActivity.class));
+					startActivity(new Intent(LoginActivity.this,
+							MainActivity.class));
 					finish();
 				} else {
-					
+
 				}
 			}
 		}
 
 		loginButton.setOnClickListener(new loginButtonListener());
 
-
 	}
 
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_login, menu);
 		return true;
 	}
 
+	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.login_menu_serversettings:

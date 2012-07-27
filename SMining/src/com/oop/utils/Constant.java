@@ -21,7 +21,7 @@ public class Constant {
 	public static final String CITY_NAME_PATH = "postal_code";
 	/* 节点属性名称 */
 	public static final String ATTRIBUTE_NAME = "data";
-	/* 信息节点*/
+	/* 信息节点 */
 	public static final String INFORMATION_PATH = "forecast_information";
 	/* 节点属性名称 */
 	public static final String FORECAST_CONDITION = "forecast_conditions";
@@ -45,10 +45,10 @@ public class Constant {
 
 	public static final String T_SIGN = "°C";
 
-	//网络连接错误码
+	// 网络连接错误码
 	public static final int NET_LINK_ERROR = 1;
-	//城市存不在错误码
+	// 城市存不在错误码
 	public static final int CITY_NOT_EXIST = 2;
-	//操作成功
+	// 操作成功
 	public static final int SUCCESS_FULL = 3;
 }

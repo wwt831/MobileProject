@@ -17,32 +17,35 @@ public class ServerIPActivity extends Activity {
 	private EditText ETserverIP;
 	private String serverIP;
 
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_serverip);
-        setTitle("服务器地址设置");
-        
-        saveButton = (Button)this.findViewById(R.id.ServerIP_btn_save);
-        ETserverIP = (EditText)this.findViewById(R.id.ServerIP_edit_server);
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_serverip);
+		setTitle("服务器地址设置");
 
-        serverIP = Utils.getServerIP(this);
-        ETserverIP.setText(serverIP);
-        
-        //设置保存按钮动作
-        class saveButtonListener implements OnClickListener {
+		saveButton = (Button) this.findViewById(R.id.ServerIP_btn_save);
+		ETserverIP = (EditText) this.findViewById(R.id.ServerIP_edit_server);
+
+		serverIP = Utils.getServerIP(this);
+		ETserverIP.setText(serverIP);
+
+		// 设置保存按钮动作
+		class saveButtonListener implements OnClickListener {
 			public void onClick(View v) {
 				String serverIP = ETserverIP.getText().toString();
-				if(Utils.isValidServerIP(serverIP)) {
+				if (Utils.isValidServerIP(serverIP)) {
 					Utils.saveServerIP(ServerIPActivity.this, serverIP);
-					Intent intent = new Intent(ServerIPActivity.this,LoginActivity.class);
-        			startActivity(intent);
-        			finish();
+					Intent intent = new Intent(ServerIPActivity.this,
+							LoginActivity.class);
+					startActivity(intent);
+					finish();
 				} else {
-	        		Toast.makeText(ServerIPActivity.this, "IP地址无效！", 300).show();					
+					Toast.makeText(ServerIPActivity.this, "IP地址无效！", 300)
+							.show();
 				}
-        	}
-        }
-        
-        saveButton.setOnClickListener(new saveButtonListener());
+			}
+		}
+
+		saveButton.setOnClickListener(new saveButtonListener());
 	}
 }

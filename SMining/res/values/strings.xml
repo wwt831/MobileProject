@@ -3,6 +3,7 @@
 	<string name="app_filename">SMining.apk</string>
     <string name="app_name">SMining</string>
     <string name="menu_serversettings">服务器设置</string>
+    <string name="menu_quit">退出应用</string>
     <string name="menu_alarmlist">报警管理</string>
     <string name="launcher_name">SMining</string>
     <string name="strInputAccHint">输入帐号</string>
