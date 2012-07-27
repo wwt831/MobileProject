@@ -117,11 +117,14 @@ public class MainActivity extends Activity {
 			// 在这里中arg2=arg3
 			HashMap<String, Object> item = (HashMap<String, Object>) arg0.getItemAtPosition(arg2);
 			// 定义按钮的动作
+			Intent intent = new Intent();
 			// 顺序从左上到右下(0..n)
 			switch(arg2) {
 			case 4: //综合报警管理
-				Intent intent = new Intent();
 				intent.setClass(MainActivity.this, AlarmListActivity.class);
+				startActivity(intent);
+			case 9: //通知公告
+				intent.setClass(MainActivity.this, cordovaExample.class);
 				startActivity(intent);
 			default:
 					Toast.makeText(MainActivity.this, String.valueOf(arg2), 500).show();

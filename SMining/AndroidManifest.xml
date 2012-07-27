@@ -28,6 +28,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".AlarmListActivity" />
         <activity android:name=".UpdateAppActivity" />
+        <activity android:name="cordovaExample" />
         
         <receiver android:name="ReplaceBroadcastReceiver">
             <intent-filter>
