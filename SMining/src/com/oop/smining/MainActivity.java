@@ -123,6 +123,13 @@ public class MainActivity extends Activity {
 				Intent intent = new Intent();
 				intent.setClass(MainActivity.this, AlarmListActivity.class);
 				startActivity(intent);
+				break;
+			case 5: 
+				startActivity(new Intent(MainActivity.this, LeaderActivity.class));
+				break;
+			case 9: 
+				startActivity(new Intent(MainActivity.this, NoticeActivity.class));
+				break;
 			default:
 					Toast.makeText(MainActivity.this, String.valueOf(arg2), 500).show();
 					Toast.makeText(MainActivity.this, String.valueOf(item.get("ItemText")), 500).show();

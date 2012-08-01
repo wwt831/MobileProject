@@ -1,0 +1,25 @@
+{
+    "datatype":"alarmlist",
+    "data":[
+        {
+            "mine_id":"编号测试1",
+            "mine_name":"北窑煤矿"
+        },
+        {
+            "mine_id":"编号测试2",
+            "mine_name":"葫芦山煤矿"
+        },
+        {
+            "mine_id":"编号测试3",
+            "mine_name":"千峰煤矿"
+        },
+        {
+            "mine_id":"编号测试4",
+            "mine_name":"瓦柳堡煤矿"
+        },
+        {
+            "mine_id":"编号测试5",
+            "mine_name":"天星煤矿"
+        }
+    ]
+}

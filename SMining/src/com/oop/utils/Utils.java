@@ -247,6 +247,8 @@ public class Utils {
 	}
 
 	public static JSONObject getDemoData(Context context, String type) {
+
+		Log.e(type, "getDemoData");
 		String line="",Result="";
 		JSONObject jsonObj=null;
 		try {

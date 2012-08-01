@@ -1,6 +1,6 @@
 <resources>
 
-	<string name="app_filename">SMining.apk</string>
+    <string name="app_filename">SMining.apk</string>
     <string name="app_name">SMining</string>
     <string name="menu_serversettings">服务器设置</string>
     <string name="menu_alarmlist">报警管理</string>
@@ -26,5 +26,10 @@
     <string name="default_city">Taiyuan</string>
     <string name="serverip">192.168.0.101</string>
     <string name="serverport">6616</string>
+    <string name="title_activity_mine">MineActivity</string>
+    <string name="title_activity_mine_list">MineListActivity</string>
+    <string name="title_activity_leader">LeaderActivity</string>
+    <string name="title_activity_time">TimeActivity</string>
+    <string name="title_activity_notice">NoticeActivity</string>
 
 </resources>
