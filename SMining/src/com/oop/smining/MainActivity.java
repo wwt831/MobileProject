@@ -1,7 +1,9 @@
-package com.oop.smining;
+ï»¿package com.oop.smining;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import com.oop.utils.Utils;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -27,86 +29,110 @@ public class MainActivity extends Activity {
 
 		gridview = (GridView) findViewById(R.id.gridView9);
 
-		// Éú³É¶¯Ì¬Êı×é£¬²¢ÇÒ×ªÈëÊı¾İ
+		// ç”ŸæˆåŠ¨æ€æ•°ç»„ï¼Œå¹¶ä¸”è½¬å…¥æ•°æ®
 		ArrayList<HashMap<String, Object>> lstImageItem = new ArrayList<HashMap<String, Object>>();
 
-		HashMap<String, Object> map1 = new HashMap<String, Object>();
-		map1.put("ItemImage", R.drawable.h001);// Ìí¼ÓÍ¼Ïñ×ÊÔ´µÄID
-		map1.put("ItemText", "°²È«Éú²ú¼à¶½");
-		lstImageItem.add(map1);
+		if(Utils.getEnabled(this, "gas")) {
+			HashMap<String, Object> map1 = new HashMap<String, Object>();
+			map1.put("ItemImage", R.drawable.main_01);// æ·»åŠ å›¾åƒèµ„æºçš„ID
+			map1.put("ItemText", "å®‰å…¨ç”Ÿäº§ç›‘ç£");
+			lstImageItem.add(map1);
+		}
 		
-		HashMap<String, Object> map2 = new HashMap<String, Object>();
-		map2.put("ItemImage", R.drawable.h001);// Ìí¼ÓÍ¼Ïñ×ÊÔ´µÄID
-		map2.put("ItemText", "ÖØµã¹¤³Ì¹ÜÀí");
-		lstImageItem.add(map2);
+		if(Utils.getEnabled(this, "project")) {
+			HashMap<String, Object> map2 = new HashMap<String, Object>();
+			map2.put("ItemImage", R.drawable.main_02);// æ·»åŠ å›¾åƒèµ„æºçš„ID
+			map2.put("ItemText", "é‡ç‚¹å·¥ç¨‹ç®¡ç†");
+			lstImageItem.add(map2);
+		}
 		
-		HashMap<String, Object> map3 = new HashMap<String, Object>();
-		map3.put("ItemImage", R.drawable.h001);// Ìí¼ÓÍ¼Ïñ×ÊÔ´µÄID
-		map3.put("ItemText", "Ó¦¼±¾ÈÔ®¹ÜÀí");
-		lstImageItem.add(map3);
+		if(Utils.getEnabled(this, "rescue")) {
+			HashMap<String, Object> map3 = new HashMap<String, Object>();
+			map3.put("ItemImage", R.drawable.main_03);// æ·»åŠ å›¾åƒèµ„æºçš„ID
+			map3.put("ItemText", "åº”æ€¥æ•‘æ´ç®¡ç†");
+			lstImageItem.add(map3);
+		}
 		
-		HashMap<String, Object> map4 = new HashMap<String, Object>();
-		map4.put("ItemImage", R.drawable.h001);// Ìí¼ÓÍ¼Ïñ×ÊÔ´µÄID
-		map4.put("ItemText", "Òş»¼ÅÅ²éÕû¸Ä");
-		lstImageItem.add(map4);
+		if(Utils.getEnabled(this, "hiddendanger")) {
+			HashMap<String, Object> map4 = new HashMap<String, Object>();
+			map4.put("ItemImage", R.drawable.main_04);// æ·»åŠ å›¾åƒèµ„æºçš„ID
+			map4.put("ItemText", "éšæ‚£æ’æŸ¥æ•´æ”¹");
+			lstImageItem.add(map4);
+		}
 		
-		HashMap<String, Object> map5 = new HashMap<String, Object>();
-		map5.put("ItemImage", R.drawable.h001);// Ìí¼ÓÍ¼Ïñ×ÊÔ´µÄID
-		map5.put("ItemText", "×ÛºÏ±¨¾¯¹ÜÀí");
-		lstImageItem.add(map5);
+		if(Utils.getEnabled(this, "alertlist")) {
+			HashMap<String, Object> map5 = new HashMap<String, Object>();
+			map5.put("ItemImage", R.drawable.main_05);// æ·»åŠ å›¾åƒèµ„æºçš„ID
+			map5.put("ItemText", "ç»¼åˆæŠ¥è­¦ç®¡ç†");
+			lstImageItem.add(map5);
+		}
 		
-		HashMap<String, Object> map6 = new HashMap<String, Object>();
-		map6.put("ItemImage", R.drawable.h001);// Ìí¼ÓÍ¼Ïñ×ÊÔ´µÄID
-		map6.put("ItemText", "Áìµ¼¸É²¿ÏÂ¾®");
-		lstImageItem.add(map6);
+		if(Utils.getEnabled(this, "leader")) {
+			HashMap<String, Object> map6 = new HashMap<String, Object>();
+			map6.put("ItemImage", R.drawable.main_06);// æ·»åŠ å›¾åƒèµ„æºçš„ID
+			map6.put("ItemText", "é¢†å¯¼å¹²éƒ¨ä¸‹äº•");
+			lstImageItem.add(map6);
+		}
 		
-		HashMap<String, Object> map7 = new HashMap<String, Object>();
-		map7.put("ItemImage", R.drawable.h001);// Ìí¼ÓÍ¼Ïñ×ÊÔ´µÄID
-		map7.put("ItemText", "ÊÂ¹Ê»ã±¨´¦Àí");
-		lstImageItem.add(map7);
+		if(Utils.getEnabled(this, "accident")) {
+			HashMap<String, Object> map7 = new HashMap<String, Object>();
+			map7.put("ItemImage", R.drawable.main_07);// æ·»åŠ å›¾åƒèµ„æºçš„ID
+			map7.put("ItemText", "äº‹æ•…æ±‡æŠ¥å¤„ç†");
+			lstImageItem.add(map7);
+		}
 		
-		HashMap<String, Object> map8 = new HashMap<String, Object>();
-		map8.put("ItemImage", R.drawable.h001);// Ìí¼ÓÍ¼Ïñ×ÊÔ´µÄID
-		map8.put("ItemText", "ÃºÌ¿ĞĞÒµ¹ÜÀí");
-		lstImageItem.add(map8);
+		if(Utils.getEnabled(this, "management")) {
+			HashMap<String, Object> map8 = new HashMap<String, Object>();
+			map8.put("ItemImage", R.drawable.main_08);// æ·»åŠ å›¾åƒèµ„æºçš„ID
+			map8.put("ItemText", "ç…¤ç‚­è¡Œä¸šç®¡ç†");
+			lstImageItem.add(map8);
+		}
 		
-		HashMap<String, Object> map9 = new HashMap<String, Object>();
-		map9.put("ItemImage", R.drawable.h001);// Ìí¼ÓÍ¼Ïñ×ÊÔ´µÄID
-		map9.put("ItemText", "Éú²úÏÖ³¡¼à¿Ø");
-		lstImageItem.add(map9);
+		if(Utils.getEnabled(this, "field")) {
+			HashMap<String, Object> map9 = new HashMap<String, Object>();
+			map9.put("ItemImage", R.drawable.main_09);// æ·»åŠ å›¾åƒèµ„æºçš„ID
+			map9.put("ItemText", "ç”Ÿäº§ç°åœºç›‘æ§");
+			lstImageItem.add(map9);
+		}
 		
-		HashMap<String, Object> map10 = new HashMap<String, Object>();
-		map10.put("ItemImage", R.drawable.h001);// Ìí¼ÓÍ¼Ïñ×ÊÔ´µÄID
-		map10.put("ItemText", "Í¨Öª¹«¸æ");
-		lstImageItem.add(map10);
+		if(Utils.getEnabled(this, "notice")) {
+			HashMap<String, Object> map10 = new HashMap<String, Object>();
+			map10.put("ItemImage", R.drawable.main_10);// æ·»åŠ å›¾åƒèµ„æºçš„ID
+			map10.put("ItemText", "é€šçŸ¥å…¬å‘Š");
+			lstImageItem.add(map10);
+		}
 		
-		HashMap<String, Object> map11 = new HashMap<String, Object>();
-		map11.put("ItemImage", R.drawable.h001);// Ìí¼ÓÍ¼Ïñ×ÊÔ´µÄID
-		map11.put("ItemText", "´ı°ìÊÂÏî");
-		lstImageItem.add(map11);
+		if(Utils.getEnabled(this, "todo")) {
+			HashMap<String, Object> map11 = new HashMap<String, Object>();
+			map11.put("ItemImage", R.drawable.main_11);// æ·»åŠ å›¾åƒèµ„æºçš„ID
+			map11.put("ItemText", "å¾…åŠäº‹é¡¹");
+			lstImageItem.add(map11);
+		}
 		
-		HashMap<String, Object> map12 = new HashMap<String, Object>();
-		map12.put("ItemImage", R.drawable.h001);// Ìí¼ÓÍ¼Ïñ×ÊÔ´µÄID
-		map12.put("ItemText", "Í¨Ñ¶Â¼");
-		lstImageItem.add(map12);
+		if(Utils.getEnabled(this, "contact")) {
+			HashMap<String, Object> map12 = new HashMap<String, Object>();
+			map12.put("ItemImage", R.drawable.main_12);// æ·»åŠ å›¾åƒèµ„æºçš„ID
+			map12.put("ItemText", "é€šè®¯å½•");
+			lstImageItem.add(map12);
+		}
 		
-		// Éú³ÉÊÊÅäÆ÷µÄImageItem <====> ¶¯Ì¬Êı×éµÄÔªËØ£¬Á½ÕßÒ»Ò»¶ÔÓ¦
+		// ç”Ÿæˆé€‚é…å™¨çš„ImageItem <====> åŠ¨æ€æ•°ç»„çš„å…ƒç´ ï¼Œä¸¤è€…ä¸€ä¸€å¯¹åº”
 		SimpleAdapter saImageItems = new SimpleAdapter(this,
-				lstImageItem,// Êı¾İÀ´Ô´
-				R.layout.gridview_item,// gridview_itemµÄXMLÊµÏÖ
+				lstImageItem,// æ•°æ®æ¥æº
+				R.layout.gridview_item,// gridview_itemçš„XMLå®ç°
 
-				// ¶¯Ì¬Êı×éÓëImageItem¶ÔÓ¦µÄ×ÓÏî
+				// åŠ¨æ€æ•°ç»„ä¸ImageItemå¯¹åº”çš„å­é¡¹
 				new String[] { "ItemImage", "ItemText" },
 
-				// ImageItemµÄXMLÎÄ¼şÀïÃæµÄÒ»¸öImageView,Á½¸öTextView ID
+				// ImageItemçš„XMLæ–‡ä»¶é‡Œé¢çš„ä¸€ä¸ªImageView,ä¸¤ä¸ªTextView ID
 				new int[] { R.id.ItemImage, R.id.ItemText });
-		// Ìí¼Ó²¢ÇÒÏÔÊ¾
+		// æ·»åŠ å¹¶ä¸”æ˜¾ç¤º
 		gridview.setAdapter(saImageItems);
-		// Ìí¼ÓÏûÏ¢´¦Àí
+		// æ·»åŠ æ¶ˆæ¯å¤„ç†
 		gridview.setOnItemClickListener(new ItemClickListener());
 	}
 
-	// µ±AdapterView±»µ¥»÷(´¥ÃşÆÁ»òÕß¼üÅÌ)£¬Ôò·µ»ØµÄItemµ¥»÷ÊÂ¼ş
+	// å½“AdapterViewè¢«å•å‡»(è§¦æ‘¸å±æˆ–è€…é”®ç›˜)ï¼Œåˆ™è¿”å›çš„Itemå•å‡»äº‹ä»¶
 	class ItemClickListener implements OnItemClickListener {
 		public void onItemClick(AdapterView<?> arg0,// The AdapterView where the
 													// click happened
@@ -114,18 +140,20 @@ public class MainActivity extends Activity {
 				int arg2,// The position of the view in the adapter
 				long arg3// The row id of the item that was clicked
 		) {
-			// ÔÚÕâÀïÖĞarg2=arg3
+			// åœ¨è¿™é‡Œä¸­arg2=arg3
 			HashMap<String, Object> item = (HashMap<String, Object>) arg0.getItemAtPosition(arg2);
-			// ¶¨Òå°´Å¥µÄ¶¯×÷
+			// å®šä¹‰æŒ‰é’®çš„åŠ¨ä½œ
 			Intent intent = new Intent();
-			// Ë³Ğò´Ó×óÉÏµ½ÓÒÏÂ(0..n)
+			// é¡ºåºä»å·¦ä¸Šåˆ°å³ä¸‹(0..n)
 			switch(arg2) {
-			case 4: //×ÛºÏ±¨¾¯¹ÜÀí
+			case 4: //ç»¼åˆæŠ¥è­¦ç®¡ç†
 				intent.setClass(MainActivity.this, AlarmListActivity.class);
 				startActivity(intent);
-			case 9: //Í¨Öª¹«¸æ
+				break;
+			case 9: //é€šçŸ¥å…¬å‘Š
 				intent.setClass(MainActivity.this, cordovaExample.class);
 				startActivity(intent);
+				break;
 			default:
 					Toast.makeText(MainActivity.this, String.valueOf(arg2), 500).show();
 					Toast.makeText(MainActivity.this, String.valueOf(item.get("ItemText")), 500).show();
@@ -137,7 +165,7 @@ public class MainActivity extends Activity {
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		// TODO:´¦Àí·µ»Ø¼ü¼°HOME¼üÊÂ¼ş
+		// TODO:å¤„ç†è¿”å›é”®åŠHOMEé”®äº‹ä»¶
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			ExitAlert();
 		}

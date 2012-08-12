@@ -1,4 +1,4 @@
-package com.oop.utils;
+ï»¿package com.oop.utils;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -35,13 +35,13 @@ import android.util.Log;
 
 public class Utils {
 
-	//»ñµÃµ±Ç°ÈÕÆÚÊ±¼ä
+	//è·å¾—å½“å‰æ—¥æœŸæ—¶é—´
 	public static String getCurrentlyDate() {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		return dateFormat.format(new Date());
 	}
 	
-	//»ñµÃÃ÷ÌìµÄÈÕÆÚ
+	//è·å¾—æ˜å¤©çš„æ—¥æœŸ
 	public static String getNextDate(String dateTime) {
 		String[] date = dateTime.split("-");
 		int day = Integer.valueOf(date[2]);
@@ -70,7 +70,7 @@ public class Utils {
 		return buffer.toString();
 	}
 
-	//ÅĞ¶ÏÊÇ·ñÊÇÍíÉÏ
+	//åˆ¤æ–­æ˜¯å¦æ˜¯æ™šä¸Š
 	public static boolean isNight() {
 		Calendar c = Calendar.getInstance();
 		int hour = c.get(Calendar.HOUR_OF_DAY);
@@ -80,7 +80,7 @@ public class Utils {
 		return false;
 	}
 	
-	//¼ì²éÍøÂçÊÇ·ñ¿ÉÓÃ
+	//æ£€æŸ¥ç½‘ç»œæ˜¯å¦å¯ç”¨
 	public static boolean isNetworkAvailable(Context context) {
 		try {
 
@@ -94,7 +94,7 @@ public class Utils {
 		}
 	}
 	
-	//±àÂë×ª»»UTF8
+	//ç¼–ç è½¬æ¢UTF8
 	public static String encodeUTF8(String str) {
 		try {
 			str = URLEncoder.encode(str, "UTF-8");
@@ -104,42 +104,55 @@ public class Utils {
 		return str;
 	}
 	
-	//ÉèÖÃ·şÎñÆ÷µØÖ·
+	//è®¾ç½®æœåŠ¡å™¨åœ°å€
 	public static void saveServerIP(Context context, String serverIP) {
 		saveProperties(context, "ServerIP", serverIP);
 	}
 	
-	//»ñÈ¡·şÎñÆ÷µØÖ·
+	//è·å–æœåŠ¡å™¨åœ°å€
 	public static String getServerIP(Context context) {
 		return getProperties(context, "ServerIP");
 	}
 
-	//»ñÈ¡·şÎñÆ÷¶Ë¿Ú
+	//è·å–æœåŠ¡å™¨ç«¯å£
 	public static String getServerPort(Context context) {
 		return context.getString(R.string.serverport);
 	}
 
-	// »ñÈ¡×î½üÊ¹ÓÃµÄÓÃ»§Ãû
+	// è·å–æœ€è¿‘ä½¿ç”¨çš„ç”¨æˆ·å
 	public static String getSavedUserName(Context context) {
 		return getProperties(context, "UserName");
 	}
 
-	//±£´æÊ¹ÓÃµÄÓÃ»§Ãû
+	//ä¿å­˜ä½¿ç”¨çš„ç”¨æˆ·å
 	public static void saveUserName(Context context, String userName) {
 		saveProperties(context, "UserName", userName);
 	}
 	
-	// »ñÈ¡×î½üÊ¹ÓÃµÄÃÜÂë
+	// è·å–æœ€è¿‘ä½¿ç”¨çš„å¯†ç 
 	public static String getSavedPassword(Context context) {
 		return getProperties(context, "Password");
 	}
 
-	//±£´æÊ¹ÓÃµÄÃÜÂë
+	//ä¿å­˜ä½¿ç”¨çš„å¯†ç 
 	public static void savePassword(Context context, String password) {
 		saveProperties(context, "Password", password);
 	}
 	
-	//½«ÅäÖÃĞÅÏ¢±£´æµ½PropertiesÎÄ¼şÖĞ
+	public static boolean getEnabled(Context context, String function) {
+		Properties properties = new Properties();
+		try {
+			properties.load(context.getAssets().open("deploy.prop"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		if(properties.get(function).equals("on"))
+			return true;
+		else
+			return false;
+	}
+	
+	//å°†é…ç½®ä¿¡æ¯ä¿å­˜åˆ°Propertiesæ–‡ä»¶ä¸­
 	private static void saveProperties(Context context, String propName, String value) {
 		OutputStream out = null;
 		InputStream in = null;
@@ -168,7 +181,7 @@ public class Utils {
 		}
 	}
 	
-	//½«ÅäÖÃĞÅÏ¢´ÓPropertiesÎÄ¼şÖĞ¶Á³öÀ´
+	//å°†é…ç½®ä¿¡æ¯ä»Propertiesæ–‡ä»¶ä¸­è¯»å‡ºæ¥
 	private static String getProperties(Context context, String propName) {
 		InputStream in;
 		try {
@@ -185,7 +198,7 @@ public class Utils {
 		return (String) properties.get(propName);
 	}
 	
-	//»ñµÃµ±Ç°°æ±¾´úÂë
+	//è·å¾—å½“å‰ç‰ˆæœ¬ä»£ç 
 	public static int getCurrentVersionCode(Context context)throws NameNotFoundException{
 		int verCode = -1;
 		try{
@@ -197,7 +210,7 @@ public class Utils {
 		return verCode;
 	}
 	
-	//»ñµÃµ±Ç°°æ±¾Ãû³Æ
+	//è·å¾—å½“å‰ç‰ˆæœ¬åç§°
 	public static String getCurrentVersionName(Context context){
 		String verName = "";
 		try{
@@ -209,10 +222,10 @@ public class Utils {
 		return verName;
 	}
 	
-	//»ñµÃ·şÎñÆ÷¶ËµÄÓ¦ÓÃ³ÌĞò°æ±¾ÃèÊö´®
-	//JSON¸ñÊ½¶¨Òå¼û¡°SMiningÊı¾İ´«Êä¹æ·¶¡±
+	//è·å¾—æœåŠ¡å™¨ç«¯çš„åº”ç”¨ç¨‹åºç‰ˆæœ¬æè¿°ä¸²
+	//JSONæ ¼å¼å®šä¹‰è§â€œSMiningæ•°æ®ä¼ è¾“è§„èŒƒâ€
 	public static String getServerVersionJSON() throws Exception{
-		//TODO:´¦Àí·şÎñÆ÷µØÖ·µÄÎÊÌâ
+		//TODO:å¤„ç†æœåŠ¡å™¨åœ°å€çš„é—®é¢˜
 		String serverIP = "";
 		int serverPort = 0;
 		String serverPath = "";
@@ -220,10 +233,10 @@ public class Utils {
 		StringBuilder newVerJSON = new StringBuilder();
 		HttpClient client = new DefaultHttpClient();
 		HttpParams httpParams = client.getParams();
-		HttpConnectionParams.setConnectionTimeout(httpParams, 3000);//ÉèÖÃÁ¬½Ó³¬Ê±·¶Î§
+		HttpConnectionParams.setConnectionTimeout(httpParams, 3000);//è®¾ç½®è¿æ¥è¶…æ—¶èŒƒå›´
 		HttpConnectionParams.setSoTimeout(httpParams, 5000);
 		
-		//serverPathÊÇversion.jsonµÄÂ·¾¶
+		//serverPathæ˜¯version.jsonçš„è·¯å¾„
 		HttpResponse response = client.execute(new HttpGet(serverIP + ":" + serverPort + "/" + serverPath));
 		HttpEntity entity = response.getEntity();
 		if(entity != null){
@@ -231,7 +244,7 @@ public class Utils {
 					new InputStreamReader(entity.getContent(),"UTF-8"),8192);
 			String line = null;
 			while((line = reader.readLine()) != null){
-				newVerJSON.append(line+"\n");//°´ĞĞ¶ÁÈ¡·ÅÈëStringBuilderÖĞ
+				newVerJSON.append(line+"\n");//æŒ‰è¡Œè¯»å–æ”¾å…¥StringBuilderä¸­
 			}
 			reader.close();
 		}
@@ -250,7 +263,7 @@ public class Utils {
 		String line="",Result="";
 		JSONObject jsonObj=null;
 		try {
-			//JSONÊı¾İ±ØĞë²ÉÓÃ UTF-8±àÂë
+			//JSONæ•°æ®å¿…é¡»é‡‡ç”¨ UTF-8ç¼–ç 
 			InputStreamReader inputReader = new InputStreamReader(context.getResources().getAssets().open(type+".json"), "UTF-8");
 			BufferedReader bufReader = new BufferedReader(inputReader);
 			while((line=bufReader.readLine())!=null)

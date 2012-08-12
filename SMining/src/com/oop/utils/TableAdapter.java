@@ -45,33 +45,34 @@ public class TableAdapter extends android.widget.BaseAdapter {
 			super(context);
 			
 			this.setOrientation(LinearLayout.HORIZONTAL);
-			//Öğ¸öµ¥Ôª¸ñÌí¼Óµ½ĞĞ
+			//é€ä¸ªå•å…ƒæ ¼æ·»åŠ åˆ°è¡Œ
 			for(int i=0;i<tableRow.getSize();i++) {
 				TableCell tableCell = tableRow.getCellValue(i);
-				//°´ÕÕµ¥Ôª¸ñÖ¸¶¨´óĞ¡ÉèÖÃ¿Õ¼ä
+				//è®¾ç½®å•å…ƒæ ¼å¤§å°
 				LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(tableCell.width, tableCell.height);
-				//Ô¤Áô¿ÕÏ¶ÖÆÔì±ß¿ò
+				//é¢„ç•™ç©ºé—´æ„é€ è¾¹æ¡†
 				layoutParams.setMargins(0, 0, 1, 1);
-				//Èç¹ûµ¥Ôª¸ñÊÇÎÄ±¾
+
 				if(tableCell.type == TableCell.STRING) {
 					TextView textCell = new TextView(context);
 					textCell.setLines(1);
 					textCell.setGravity(Gravity.CENTER);
-					textCell.setBackgroundColor(Color.BLACK);
+					textCell.setBackgroundColor(Color.WHITE);
 					textCell.setText(String.valueOf(tableCell.value));
+					textCell.setTextColor(Color.RED);
 					addView(textCell, layoutParams);
 				} else if (tableCell.type == TableCell.IMAGE) {
 					ImageView imgCell = new ImageView(context);
-					imgCell.setBackgroundColor(Color.BLACK);
+					imgCell.setBackgroundColor(Color.WHITE);
 					imgCell.setImageResource((Integer) tableCell.value);
 					addView(imgCell, layoutParams);
 				}
 			}
-			this.setBackgroundColor(Color.WHITE);
+			this.setBackgroundColor(Color.DKGRAY);
 		}
 	}
 	
-	//ÊµÏÖ±í¸ñµÄĞĞ
+	//å®ç°è¡¨æ ¼è¡Œ
 	static public class TableRow {
 		private TableCell[] cell;
 		public TableRow(TableCell[] cell) {
@@ -87,7 +88,7 @@ public class TableAdapter extends android.widget.BaseAdapter {
 		}
 	}
 	
-	//ÊµÏÖµ¥Ôª¸ñ
+	//å®ç°å•å…ƒæ ¼
 	static public class TableCell {
 		static public final int STRING=0;
 		static public final int IMAGE=1;

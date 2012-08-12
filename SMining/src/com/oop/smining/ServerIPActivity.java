@@ -1,4 +1,4 @@
-package com.oop.smining;
+ï»¿package com.oop.smining;
 
 import com.oop.utils.Utils;
 
@@ -20,7 +20,7 @@ public class ServerIPActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_serverip);
-        setTitle("·şÎñÆ÷µØÖ·ÉèÖÃ");
+        setTitle("æœåŠ¡å™¨åœ°å€è®¾ç½®");
         
         saveButton = (Button)this.findViewById(R.id.ServerIP_btn_save);
         ETserverIP = (EditText)this.findViewById(R.id.ServerIP_edit_server);
@@ -28,7 +28,7 @@ public class ServerIPActivity extends Activity {
         serverIP = Utils.getServerIP(this);
         ETserverIP.setText(serverIP);
         
-        //ÉèÖÃ±£´æ°´Å¥¶¯×÷
+        //è®¾ç½®ä¿å­˜æŒ‰é’®åŠ¨ä½œ
         class saveButtonListener implements OnClickListener {
 			public void onClick(View v) {
 				String serverIP = ETserverIP.getText().toString();
@@ -38,7 +38,7 @@ public class ServerIPActivity extends Activity {
         			startActivity(intent);
         			finish();
 				} else {
-	        		Toast.makeText(ServerIPActivity.this, "IPµØÖ·ÎŞĞ§£¡", 300).show();					
+	        		Toast.makeText(ServerIPActivity.this, "IPåœ°å€æ— æ•ˆï¼", 300).show();					
 				}
         	}
         }

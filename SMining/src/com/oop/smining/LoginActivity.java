@@ -1,4 +1,4 @@
-package com.oop.smining;
+ï»¿package com.oop.smining;
 
 import com.oop.utils.Utils;
 
@@ -43,14 +43,14 @@ public class LoginActivity extends Activity {
 		loginETUserName.setText(username);
 		loginETPassword.setText(password);
 		
-		// ¶¨ÒåµÇÂ¼°´Å¥¶¯×÷
+		// å®šä¹‰ç™»å½•æŒ‰é’®åŠ¨ä½œ
 		class loginButtonListener implements OnClickListener {
 			public void onClick(View v) {
 				username = loginETUserName.getText().toString();
 				password = loginETPassword.getText().toString();
 				
 				boolean isValidUser;
-				// TODO:µ½·şÎñÆ÷¶ËÑéÖ¤ÓÃ»§ÓĞĞ§ĞÔ
+				// TODO:åˆ°æœåŠ¡å™¨ç«¯éªŒè¯ç”¨æˆ·æœ‰æ•ˆæ€§
 				isValidUser = true;
 				
 				if(isValidUser) {

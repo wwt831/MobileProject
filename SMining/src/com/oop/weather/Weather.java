@@ -1,4 +1,4 @@
-package com.oop.weather;
+﻿package com.oop.weather;
 
 public class Weather {
 	private String currently_date;

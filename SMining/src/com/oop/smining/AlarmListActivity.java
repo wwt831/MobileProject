@@ -1,4 +1,4 @@
-package com.oop.smining;
+Ôªøpackage com.oop.smining;
 
 import java.util.ArrayList;
 
@@ -35,28 +35,28 @@ public class AlarmListActivity extends Activity {
         
         ArrayList<TableRow> table = new ArrayList<TableRow>();
 
-        //±ÌÕ∑∂®“Â
+        //Ë°®Â§¥ÂÆö‰πâ
         TableCell[] titles = new TableCell[4];
         
-        titles[0] = new TableCell("–Ú∫≈",
+        titles[0] = new TableCell("Â∫èÂè∑",
         		80,
         		LayoutParams.FILL_PARENT,
         		TableCell.STRING);
-        titles[1] = new TableCell("¿‡–Õ",
+        titles[1] = new TableCell("Á±ªÂûã",
         		80,
         		LayoutParams.FILL_PARENT,
         		TableCell.STRING);
-        titles[2] = new TableCell(" ±º‰",
+        titles[2] = new TableCell("Êó∂Èó¥",
         		240,
         		LayoutParams.FILL_PARENT,
         		TableCell.STRING);
-        titles[3] = new TableCell("µ•Œª",
+        titles[3] = new TableCell("Âçï‰Ωç",
         		320,
         		LayoutParams.FILL_PARENT,
         		TableCell.STRING);
         table.add(new TableRow(titles));
         
-        //ªÒ»°Demo ˝æ›
+        //Ëé∑ÂèñDemoÊï∞ÊçÆ
         JSONArray arrData = null;
         JSONObject jsonObj = Utils.getDemoData(AlarmListActivity.this, "alarm");
 
@@ -66,7 +66,7 @@ public class AlarmListActivity extends Activity {
 			e.printStackTrace();
 		}
         
-        //√ø–– ˝æ›∂®“Â
+        //ÊØèË°åÊï∞ÊçÆÂÆö‰πâ
         for(int i=0;i<arrData.length();i++) {
         	TableCell[] cells = new TableCell[4];
         	cells[0] = new TableCell(String.valueOf(i+1),
@@ -106,10 +106,10 @@ public class AlarmListActivity extends Activity {
 						LayoutParams.FILL_PARENT,
 						TableCell.STRING);
 			}
-        	//∞—±Ì∏Òµƒ––ÃÌº”µΩ±Ì∏Ò
+        	//ÊääË°®Ê†ºÁöÑË°åÊ∑ªÂä†Âà∞Ë°®Ê†º
            	table.add(new TableRow(cells));
         }
-        //œ‘ æ ˝æ›
+        //ÊòæÁ§∫Êï∞ÊçÆ
         TableAdapter tableAdapter = new TableAdapter(this, table);
         lv_alarm.setAdapter(tableAdapter);
         lv_alarm.setOnItemClickListener(new ItemClickEvent());
@@ -139,7 +139,7 @@ public class AlarmListActivity extends Activity {
 
 		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 				long arg3) {
-			Toast.makeText(AlarmListActivity.this, "—°÷–"+String.valueOf(arg2)+"––", 500).show();
+			Toast.makeText(AlarmListActivity.this, "ÈÄâ‰∏≠"+String.valueOf(arg2)+"Ë°å", 500).show();
 		}
     }
 }
