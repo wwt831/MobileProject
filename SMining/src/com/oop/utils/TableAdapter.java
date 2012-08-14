@@ -55,7 +55,7 @@ public class TableAdapter extends android.widget.BaseAdapter {
 
 				if(tableCell.type == TableCell.STRING) {
 					TextView textCell = new TextView(context);
-					textCell.setLines(1);
+					textCell.setLines(2);
 					textCell.setGravity(Gravity.CENTER);
 					textCell.setBackgroundColor(Color.WHITE);
 					textCell.setText(String.valueOf(tableCell.value));

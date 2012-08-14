@@ -151,7 +151,7 @@ public class MainActivity extends Activity {
 				startActivity(intent);
 				break;
 			case 9: //通知公告
-				intent.setClass(MainActivity.this, cordovaExample.class);
+				intent.setClass(MainActivity.this, NotificationExample.class);
 				startActivity(intent);
 				break;
 			default:

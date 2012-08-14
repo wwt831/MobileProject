@@ -1,0 +1,30 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>Notification</title>
+<script type="text/javascript" charset="utf-8" src="cordova-2.0.0.js"></script>
+<script type="text/javascript" charset="utf-8">
+//Wait for Cordova to load
+document.addEventListener("deviceready", onDeviceReady, false);
+//Cordova is ready
+function onDeviceReady() {
+	//Empty
+}
+//alert dialog dismissed
+function alertDismissed() {
+	//do something
+}
+function showAlert() {
+	navigator.notification.alert(
+		'This is a alert!',//message
+		alertDismissed,//callback
+		'Alert',//title
+		'确定'//buttonName
+	);
+}
+</script>
+</head>
+<body>
+<p><a href="#" onclick="showAlert();return false;">Show Alert</a></p>
+</body>
+</html>

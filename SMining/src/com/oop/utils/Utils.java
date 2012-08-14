@@ -32,6 +32,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
+import android.view.WindowManager;
 
 public class Utils {
 
@@ -78,6 +79,18 @@ public class Utils {
 			return true;
 		}
 		return false;
+	}
+	
+	//获取屏幕宽度
+	public static int getScreenWidth(Context context) {
+		WindowManager wm = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
+		return wm.getDefaultDisplay().getWidth();
+	}
+	
+	//获取屏幕宽度
+	public static int getScreenHeight(Context context) {
+		WindowManager wm = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
+		return wm.getDefaultDisplay().getHeight();
 	}
 	
 	//检查网络是否可用

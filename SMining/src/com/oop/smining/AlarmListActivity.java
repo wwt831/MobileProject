@@ -36,24 +36,21 @@ public class AlarmListActivity extends Activity {
         ArrayList<TableRow> table = new ArrayList<TableRow>();
 
         //表头定义
-        TableCell[] titles = new TableCell[4];
+        TableCell[] titles = new TableCell[3];
         
         titles[0] = new TableCell("序号",
-        		80,
-        		LayoutParams.FILL_PARENT,
+        		60,
+        		36,
         		TableCell.STRING);
         titles[1] = new TableCell("类型",
         		80,
-        		LayoutParams.FILL_PARENT,
+        		36,
         		TableCell.STRING);
-        titles[2] = new TableCell("时间",
+        titles[2] = new TableCell("详情",
         		240,
-        		LayoutParams.FILL_PARENT,
+        		36,
         		TableCell.STRING);
-        titles[3] = new TableCell("单位",
-        		320,
-        		LayoutParams.FILL_PARENT,
-        		TableCell.STRING);
+
         table.add(new TableRow(titles));
         
         //获取Demo数据
@@ -68,42 +65,34 @@ public class AlarmListActivity extends Activity {
         
         //每行数据定义
         for(int i=0;i<arrData.length();i++) {
-        	TableCell[] cells = new TableCell[4];
+        	TableCell[] cells = new TableCell[3];
         	cells[0] = new TableCell(String.valueOf(i+1),
         			titles[0].width,
-        			LayoutParams.FILL_PARENT,
+        			LayoutParams.MATCH_PARENT,
         			TableCell.STRING);
         	try {
 				cells[1] = new TableCell(((JSONObject)arrData.get(i)).getString("monitor_type"),
 						titles[1].width,
-						LayoutParams.FILL_PARENT,
+						LayoutParams.MATCH_PARENT,
 						TableCell.STRING);
 			} catch (JSONException e) {
 				cells[1] = new TableCell("err",
 						titles[1].width,
-						LayoutParams.FILL_PARENT,
+						LayoutParams.MATCH_PARENT,
 						TableCell.STRING);
 			}
         	try {
-				cells[2] = new TableCell(((JSONObject)arrData.get(i)).getString("datetime"),
+        		String mine_name = ((JSONObject)arrData.get(i)).getString("mine_name");
+        		String detail = mine_name.concat(((JSONObject)arrData.get(i)).getString("datetime"));
+        		
+				cells[2] = new TableCell(detail,
 						titles[2].width,
-						LayoutParams.FILL_PARENT,
+						LayoutParams.MATCH_PARENT,
 						TableCell.STRING);
 			} catch (JSONException e) {
 				cells[2] = new TableCell("err",
 						titles[2].width,
-						LayoutParams.FILL_PARENT,
-						TableCell.STRING);
-			}
-        	try {
-				cells[3] = new TableCell(((JSONObject)arrData.get(i)).getString("mine_name"),
-						titles[3].width,
-						LayoutParams.FILL_PARENT,
-						TableCell.STRING);
-			} catch (JSONException e) {
-				cells[3] = new TableCell("err",
-						titles[3].width,
-						LayoutParams.FILL_PARENT,
+						LayoutParams.MATCH_PARENT,
 						TableCell.STRING);
 			}
         	//把表格的行添加到表格
